@@ -12,7 +12,9 @@ Future<T> errorExceptionHandler<T>(Future<T> Function() action) async {
     if (e.response != null) {
       message = e.response!.data['message'];
       throw DioServerException(
-          message: message, errors: e.response!.data['errors']);
+          statusCode: e.response!.statusCode,
+          message: message,
+          errors: e.response!.data['errors']);
     } else if (e.message != null) {
       message = e.message!;
     }
@@ -27,8 +29,9 @@ Future<Either<Failure, T>> eitherErrorExceptionHandler<T>(
   try {
     return await action();
   } on DioServerException catch (e) {
-    print("DioServerException");
+    print("eitherErrorExceptionHandler");
     print(e.message);
-    return left(Failure(message: e.message, errors: e.errors));
+    return left(Failure(
+        message: e.message, errors: e.errors, statusCode: e.statusCode));
   }
 }

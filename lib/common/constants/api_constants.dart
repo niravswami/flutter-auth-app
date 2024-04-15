@@ -1,6 +1,7 @@
 class ApiConstants {
   ApiConstants._();
-  static const String baseUrl = "http://localhost:82/api";
+  // static const String baseUrl = "http://localhost:82/api";
+  static const String baseUrl = "http://localhost/api";
 }
 
 class AuthApiEndpointConstants {

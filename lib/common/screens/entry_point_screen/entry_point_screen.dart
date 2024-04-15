@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../features/home/presentation/screens/home_screen/home_screen.dart';
 import '../../../features/notifications/presentation/screens/notifications_screen.dart';
 import '../../../features/user_profile/presentation/screens/user_profile.dart';
+import '../../components/custom_bottom_navigation_bar/custom_bottom_navigation_bar.dart';
 
 class EntryPointScreen extends StatefulWidget {
   const EntryPointScreen({super.key});
@@ -69,6 +70,7 @@ class _EntryPointScreenState extends State<EntryPointScreen> {
           ),
         ],
       ),
+      // bottomNavigationBar: const CustomBottomNavigationBar(),
       body: currentPage,
     );
   }

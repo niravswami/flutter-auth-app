@@ -117,6 +117,8 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     return errorExceptionHandler(() async {
       final response =
           await apiService.getReq(AuthApiEndpointConstants.getUserDetail);
+      print('response');
+      print(response);
       final user = UserModel.fromJson(response);
       return user;
     });
@@ -140,6 +142,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   //     final user = UserModel.fromJson(response['user']);
   //     return user;
   //   } on DioException catch (e) {
+  //     print(e);
   //     String message = 'An unexpected error occurred!';
   //     if (e.response != null) {
   //       message = e.response!.data['message'];
@@ -153,4 +156,6 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   //     throw DioServerException(message: e.toString());
   //   }
   // }
+
+  // -----------------------
 }

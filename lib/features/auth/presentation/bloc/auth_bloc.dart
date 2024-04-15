@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../common/entities/user_entity.dart';
@@ -16,6 +17,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final SignUpUseCase _signUpUseCase;
   final GetUserDetailUseCase _getUserDetailUseCase;
   final LogoutUseCase _logoutUseCase;
+
+  @override
+  void onChange(Change<AuthState> change) {
+    super.onChange(change);
+    print('AuthBloc Change - $change');
+  }
+
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    super.onError(error, stackTrace);
+    print('AuthBloc Error - $error');
+  }
 
   AuthBloc({
     required LoginUseCase loginUseCase,
@@ -67,7 +80,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthLoading());
         final res = await _getUserDetailUseCase(NoParams());
         res.fold(
-          (l) => emit(AuthErrors(message: l.message, errors: l.errors)),
+          (l) => emit(AuthErrors(
+              message: l.message, errors: l.errors, statusCode: l.statusCode)),
           (user) => emit(AuthUserLoggedIn(user)),
         );
       },

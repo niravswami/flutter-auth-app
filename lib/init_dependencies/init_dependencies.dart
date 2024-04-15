@@ -3,6 +3,9 @@ part of 'init_dependencies_imports.dart';
 final serviceLocator = GetIt.instance;
 
 Future<void> initDependencies() async {
+  // Register rootNavigator and shellNavigator with GetIt
+  NavigatorKeyDependenciesRegister(serviceLocator: serviceLocator).register();
+
   await RegisterSharedPref(serviceLocator: serviceLocator).registerSharedPref();
 
   _registerApiService();

@@ -5,6 +5,8 @@ class UserModel extends UserEntity {
     required super.id,
     required super.name,
     required super.email,
+    required super.roles,
+    required super.permissions,
     required super.emailVerifiedAt,
     required super.createdAt,
     required super.updatedAt,
@@ -14,6 +16,8 @@ class UserModel extends UserEntity {
     int? id,
     String? name,
     String? email,
+    List<String>? roles,
+    List<String>? permissions,
     DateTime? emailVerifiedAt,
     DateTime? createdAt,
     DateTime? updatedAt,
@@ -22,6 +26,8 @@ class UserModel extends UserEntity {
         id: id ?? this.id,
         name: name ?? this.name,
         email: email ?? this.email,
+        roles: roles ?? this.roles,
+        permissions: permissions ?? this.permissions,
         emailVerifiedAt: emailVerifiedAt ?? this.emailVerifiedAt,
         createdAt: createdAt ?? this.createdAt,
         updatedAt: updatedAt ?? this.updatedAt,
@@ -31,6 +37,14 @@ class UserModel extends UserEntity {
         id: json["id"],
         name: json["name"],
         email: json["email"],
+        roles: (json["roles"] as List<dynamic>?)
+                ?.map((role) => role.toString())
+                .toList() ??
+            [],
+        permissions: (json["permissions"] as List<dynamic>?)
+                ?.map((permission) => permission.toString())
+                .toList() ??
+            [],
         emailVerifiedAt: json["email_verified_at"] != null
             ? DateTime.parse(json["email_verified_at"])
             : json["email_verified_at"],
@@ -42,6 +56,8 @@ class UserModel extends UserEntity {
         "id": id,
         "name": name,
         "email": email,
+        "roles": roles,
+        "permissions": permissions,
         "email_verified_at": emailVerifiedAt != null
             ? emailVerifiedAt?.toIso8601String()
             : emailVerifiedAt,

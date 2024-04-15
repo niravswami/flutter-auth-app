@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../common/constants/permissions_constants.dart';
 import '../../../../../common/routes/routes_constants.dart';
+import '../../../../../common/utils/has_role_permission/has_role_permission.dart';
 import '../../../../../common/utils/helpers/routing_helper_fn.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,6 +11,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final bool canAccessAdminDashboard =
+        canAccess(context: context, permissions: [
+      PermissionsConstants.readAdminDashboard,
+    ]);
 
     return Scaffold(
       appBar: AppBar(
@@ -44,6 +50,14 @@ class HomeScreen extends StatelessWidget {
               style: textTheme.bodyMedium,
             ),
           ),
+          canAccessAdminDashboard
+              ? Text(
+                  "Yay! you have the Admin Dashboard access.",
+                  style: textTheme.bodyLarge!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : const SizedBox(),
         ],
       ),
     );

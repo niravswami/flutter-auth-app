@@ -5,6 +5,8 @@ class UserEntity extends Equatable {
   final String name;
   final String email;
   final DateTime? emailVerifiedAt;
+  final List<String>? roles;
+  final List<String>? permissions;
   final DateTime createdAt;
   final DateTime updatedAt;
 
@@ -12,6 +14,8 @@ class UserEntity extends Equatable {
     required this.id,
     required this.name,
     required this.email,
+    required this.roles,
+    required this.permissions,
     required this.emailVerifiedAt,
     required this.createdAt,
     required this.updatedAt,
@@ -23,6 +27,8 @@ class UserEntity extends Equatable {
         name,
         email,
         emailVerifiedAt,
+        roles,
+        permissions,
         createdAt,
         updatedAt,
       ];

@@ -11,4 +11,9 @@ class AssetsConstants {
 
   // images paths
   static const browserWindowImgPath = 'assets/images/web-browser.jpg';
+
+  // icons
+  static const icon48SizePath = 'assets/images/icons/icon-48.png';
+  static const icon96SizePath = 'assets/images/icons/icon-96.png';
+  static const icon96SizeBgWPath = 'assets/images/icons/icon-96-bg-w.png';
 }

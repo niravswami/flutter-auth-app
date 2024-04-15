@@ -7,9 +7,14 @@ class AppRouter {
 
   AppRouter({required this.serviceLocator}) {
     authBlocState = serviceLocator<AuthBloc>();
+    final GlobalKey<NavigatorState> rootNavigator =
+        serviceLocator.get<GlobalKey<NavigatorState>>(
+            instanceName:
+                NavigatorKeyDependenciesRegisterInstanceName.rootNavigator);
 
     // Initialize _goRouter after getting the listenable state
     _goRouter = GoRouter(
+      navigatorKey: rootNavigator,
       debugLogDiagnostics: false,
       initialLocation: AppPage.splash.toPath,
       routes: [
