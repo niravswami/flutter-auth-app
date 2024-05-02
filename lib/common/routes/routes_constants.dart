@@ -13,6 +13,9 @@ enum AppPage {
   profile,
   profileSettings,
   notifications,
+  //-> authenticated routes
+  adminDashboard,
+  // ->
   // common routes
   error,
 }
@@ -43,7 +46,11 @@ extension AppPageExtension on AppPage {
       case AppPage.profileSettings:
         return "profile-settings";
       case AppPage.notifications:
-        return "/notifications";
+        return "notifications";
+      //-> authenticated routes
+      case AppPage.adminDashboard:
+        return "/admin-dashboard";
+      // ->
       // common routes
       case AppPage.error:
         return "/error";
@@ -78,6 +85,10 @@ extension AppPageExtension on AppPage {
         return "PROFILE_SETTINGS";
       case AppPage.notifications:
         return "NOTIFICATIONS";
+      //-> authenticated routes
+      case AppPage.adminDashboard:
+        return "ADMIN_DASHBOARD";
+      //->
       // common routes
       case AppPage.error:
         return "ERROR";
@@ -112,6 +123,10 @@ extension AppPageExtension on AppPage {
         return "/profile/profile-settings";
       case AppPage.notifications:
         return "/notifications";
+      //-> authenticated routes
+      case AppPage.adminDashboard:
+        return "/admin-dashboard";
+      //->
       // common routes
       case AppPage.error:
         return "/error";

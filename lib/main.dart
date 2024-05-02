@@ -1,3 +1,4 @@
+import 'package:admin_dashboard_app/common/routes/cubit/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,6 +15,9 @@ void main() async {
     providers: [
       BlocProvider(
         create: (_) => serviceLocator<AuthBloc>(),
+      ),
+      BlocProvider(
+        create: (_) => serviceLocator<BottomNavCubit>(),
       ),
     ],
     child: const MyApp(),
@@ -53,6 +57,7 @@ class MyApp extends StatelessWidget {
               surface: Colors.grey.shade100,
               onSurface: Colors.black87,
             ),
+            appBarTheme: const AppBarTheme(centerTitle: false),
             outlinedButtonTheme:
                 AppOutlinedButtonThemeData.outlineButtonThemeData,
           ),

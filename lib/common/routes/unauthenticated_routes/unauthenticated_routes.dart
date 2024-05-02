@@ -13,7 +13,7 @@ class UnauthenticatedAppRoutes {
     GoRoute(
       path: AppPage.splash.toPath,
       name: AppPage.splash.toName,
-      builder: (context, state) => SplashScreen(),
+      builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
       path: AppPage.onBoarding.toPath,

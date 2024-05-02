@@ -18,10 +18,17 @@ class NavigatorKeyDependenciesRegister {
       rootNavigator,
       instanceName: NavigatorKeyDependenciesRegisterInstanceName.rootNavigator,
     );
+
     serviceLocator.registerSingleton<GlobalKey<NavigatorState>>(
       shellNavigator,
       instanceName:
           NavigatorKeyDependenciesRegisterInstanceName.entryPointShellNavigator,
+    );
+
+    serviceLocator.registerSingleton<GlobalKey<NavigatorState>>(
+      shellNavigator,
+      instanceName: NavigatorKeyDependenciesRegisterInstanceName
+          .adminDashboardShellNavigatorKey,
     );
   }
 }
@@ -29,4 +36,6 @@ class NavigatorKeyDependenciesRegister {
 class NavigatorKeyDependenciesRegisterInstanceName {
   static const rootNavigator = 'rootNavigator';
   static const entryPointShellNavigator = 'entryPointShellNavigator';
+  static const adminDashboardShellNavigatorKey =
+      'adminDashboardShellNavigatorKey';
 }

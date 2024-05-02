@@ -8,6 +8,7 @@ Future<void> initDependencies() async {
 
   await RegisterSharedPref(serviceLocator: serviceLocator).registerSharedPref();
 
+  serviceLocator.registerLazySingleton(() => BottomNavCubit());
   _registerApiService();
 
   AuthDependenciesRegister(serviceLocator: serviceLocator).register();
