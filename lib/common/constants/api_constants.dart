@@ -7,8 +7,12 @@ class ApiConstants {
 class AuthApiEndpointConstants {
   AuthApiEndpointConstants._();
 
+  // Auth
   static const String login = "/login";
   static const String register = "/register";
   static const String getUserDetail = "/get-user-detail";
   static const String logout = "/logout";
+
+  // Roles and Permissions
+  static const String getAdminDashboardRoles = '/admin-dashboard/roles';
 }

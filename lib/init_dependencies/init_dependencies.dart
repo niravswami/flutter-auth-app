@@ -12,6 +12,9 @@ Future<void> initDependencies() async {
   _registerApiService();
 
   AuthDependenciesRegister(serviceLocator: serviceLocator).register();
+
+  RoleAdminDashboardInitDependenciesRegister(serviceLocator: serviceLocator)
+      .register();
 }
 
 void _registerApiService() async {

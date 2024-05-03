@@ -2,9 +2,9 @@ import 'package:admin_dashboard_app/features/home/presentation/screens/home_scre
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../features/notifications/presentation/screens/notifications_screen.dart';
-import '../../../../features/user_profile/presentation/screens/user_profile_settings_screen.dart';
-import '../../routes_constants.dart';
+import '../../../../../../features/notifications/presentation/screens/notifications_screen.dart';
+import '../../../../../../features/user_profile/presentation/screens/user_profile_settings_screen.dart';
+import '../../../../routes_constants.dart';
 
 class HomeRouteBranches {
   // GoRoute get routes => _routes;

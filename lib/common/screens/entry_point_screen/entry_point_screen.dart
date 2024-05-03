@@ -2,7 +2,7 @@ import 'package:admin_dashboard_app/common/constants/permissions_constants.dart'
 import 'package:admin_dashboard_app/common/utils/has_role_permission/has_role_permission.dart';
 import 'package:flutter/material.dart';
 
-import '../../../features/admin_dashboard/presentation/screens/admin_dashboard.dart';
+import '../../../features/admin_dashboard/presentation/screens/admin_dashboard_screen.dart';
 import '../../../features/home/presentation/screens/home_screen/home_screen.dart';
 import '../../../features/user_profile/presentation/screens/user_profile.dart';
 import '../../components/custom_bottom_navigation_bar/custom_bottom_navigation_bar.dart';

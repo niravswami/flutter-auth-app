@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../features/user_profile/presentation/screens/user_profile.dart';
-import '../../../../features/user_profile/presentation/screens/user_profile_settings_screen.dart';
-import '../../routes_constants.dart';
+import '../../../../../../features/user_profile/presentation/screens/user_profile.dart';
+import '../../../../../../features/user_profile/presentation/screens/user_profile_settings_screen.dart';
+import '../../../../routes_constants.dart';
 
 class ProfileRouteBranches {
   late final List<StatefulShellBranch> _routes;
