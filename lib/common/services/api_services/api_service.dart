@@ -89,9 +89,18 @@ class ApiService {
     return response.data;
   }
 
-  Future<Map<String, dynamic>> deleteReq(String endpoint) async {
+  Future<Map<String, dynamic>> patchReq(String endpoint, dynamic data) async {
+    final response = await dio.patch(
+      endpoint,
+      data: jsonEncode(data),
+    );
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> deleteReq(String endpoint, dynamic data) async {
     final response = await dio.delete(
       endpoint,
+      data: jsonEncode(data),
     );
     return response.data;
   }

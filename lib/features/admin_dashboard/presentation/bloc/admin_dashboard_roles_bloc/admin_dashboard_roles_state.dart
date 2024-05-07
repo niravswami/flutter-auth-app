@@ -11,10 +11,30 @@ final class AdminDashboardRolesInitial extends AdminDashboardRolesState {}
 
 final class AdminDashboardRolesLoading extends AdminDashboardRolesState {}
 
+final class AdminDashboardRoleCreateLoading extends AdminDashboardRolesState {}
+
+final class AdminDashboardRoleCreateSuccess extends AdminDashboardRolesState {
+  final RoleModel role;
+
+  const AdminDashboardRoleCreateSuccess({
+    required this.role,
+  });
+}
+
+final class AdminDashboardRoleUpdateSuccess extends AdminDashboardRolesState {
+  final RoleModel role;
+
+  const AdminDashboardRoleUpdateSuccess({
+    required this.role,
+  });
+}
+
 final class AdminDashboardRolesSuccess extends AdminDashboardRolesState {
   final List<RoleModel> roles;
 
-  const AdminDashboardRolesSuccess({required this.roles});
+  const AdminDashboardRolesSuccess({
+    required this.roles,
+  });
 }
 
 final class AdminDashboardRolesErrors extends AdminDashboardRolesState {
@@ -26,5 +46,15 @@ final class AdminDashboardRolesErrors extends AdminDashboardRolesState {
     this.statusCode,
     required this.message,
     this.errors,
+  });
+}
+
+final class AdminDashboardRoleDeleteLoading extends AdminDashboardRolesState {}
+
+final class AdminDashboardRoleDeleteSuccess extends AdminDashboardRolesState {
+  final RoleModel role;
+
+  const AdminDashboardRoleDeleteSuccess({
+    required this.role,
   });
 }

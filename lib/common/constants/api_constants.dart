@@ -15,4 +15,9 @@ class AuthApiEndpointConstants {
 
   // Roles and Permissions
   static const String getAdminDashboardRoles = '/admin-dashboard/roles';
+  static const String createAdminDashboardRole = '/admin-dashboard/roles/store';
+  static const String updateAdminDashboardRole =
+      '/admin-dashboard/roles/:role_id/update';
+  static const String deleteAdminDashboardRole =
+      '/admin-dashboard/roles/delete';
 }
