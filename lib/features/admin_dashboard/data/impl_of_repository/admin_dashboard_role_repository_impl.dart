@@ -71,4 +71,21 @@ class AdminDashboardRoleRepositoryImpl implements AdminDashboardRoleRepository {
       return right(roleData);
     });
   }
+
+  @override
+  Future<Either<Failure, RoleModel>> assignPermissionsToRole({
+    required RoleModel roleData,
+    required List<int> permissionIds,
+  }) {
+    return eitherErrorExceptionHandler(() async {
+      final data =
+          await adminDashboardRemoteDataSource.assignPermissionsToRoleReq(
+        roleData: roleData,
+        permissionIds: permissionIds,
+      );
+
+      final RoleModel roleModel = RoleModel.fromJson(data['role']);
+      return right(roleModel);
+    });
+  }
 }

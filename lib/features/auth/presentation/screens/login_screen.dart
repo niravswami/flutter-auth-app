@@ -36,18 +36,6 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  void _onSubmit(BuildContext context) {
-    setState(() {
-      _isProcessing = true;
-    });
-
-    Future.delayed(const Duration(seconds: 3), () {
-      setState(() {
-        _isProcessing = false;
-      });
-    });
-  }
-
   @override
   void initState() {
     _formKey = GlobalKey<FormState>();
@@ -89,11 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 _isProcessing = false;
               });
             } else if (state is AuthUserLoggedIn) {
-              print('got to home ');
               RoutingHelperFn.replaceToName(context, AppPage.home.toName);
-              // setState(() {
-              //   _isProcessing = false;
-              // });
             }
           }, builder: (context, state) {
             return Padding(
@@ -104,7 +88,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 passwordController: _passwordController,
                 isObscurePassword: _obscurePassword,
                 setObscurePasswordField: _setObscurePasswordField,
-                // onSubmit: () => _onSubmit(context),
                 onSubmit: () {
                   setState(() {
                     _isProcessing = true;

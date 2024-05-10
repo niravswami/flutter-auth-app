@@ -58,3 +58,13 @@ final class AdminDashboardRoleDeleteSuccess extends AdminDashboardRolesState {
     required this.role,
   });
 }
+
+final class AssignPermissionsToRoleLoading extends AdminDashboardRolesState {}
+
+final class AssignPermissionsToRoleSuccess extends AdminDashboardRolesState {
+  final RoleModel role;
+
+  const AssignPermissionsToRoleSuccess({
+    required this.role,
+  });
+}

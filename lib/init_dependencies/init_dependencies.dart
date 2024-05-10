@@ -15,6 +15,8 @@ Future<void> initDependencies() async {
 
   RoleAdminDashboardInitDependenciesRegister(serviceLocator: serviceLocator)
       .register();
+  PermissionAdminDashboardInitDependencies(serviceLocator: serviceLocator)
+      .register();
 }
 
 void _registerApiService() async {

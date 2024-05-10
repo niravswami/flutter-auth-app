@@ -117,8 +117,6 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     return errorExceptionHandler(() async {
       final response =
           await apiService.getReq(AuthApiEndpointConstants.getUserDetail);
-      print('response');
-      print(response);
       final user = UserModel.fromJson(response);
       return user;
     });

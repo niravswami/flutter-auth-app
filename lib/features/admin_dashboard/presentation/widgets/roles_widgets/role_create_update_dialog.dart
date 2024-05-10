@@ -75,6 +75,7 @@ class _RoleCreateUpdateDialogState extends State<RoleCreateUpdateDialog> {
         return AlertDialog(
           title: Text(widget.title),
           content: TextField(
+            autofocus: true,
             textCapitalization: TextCapitalization.characters,
             controller: _roleNameController,
             inputFormatters: [
@@ -96,7 +97,7 @@ class _RoleCreateUpdateDialogState extends State<RoleCreateUpdateDialog> {
               },
               child: const Text('Cancel'),
             ),
-            ElevatedButton(
+            OutlinedButton(
               onPressed: () {
                 if (state is AdminDashboardRoleCreateLoading) {
                   return;

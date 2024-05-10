@@ -15,4 +15,8 @@ abstract interface class AdminDashboardRoleRepository {
   Future<Either<Failure, RoleModel>> deleteAdminDashboardRole({
     required RoleModel roleData,
   });
+  Future<Either<Failure, RoleModel>> assignPermissionsToRole({
+    required RoleModel roleData,
+    required List<int> permissionIds,
+  });
 }

@@ -1,8 +1,8 @@
-import 'package:admin_dashboard_app/common/utils/helpers/routing_helper_fn.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/utils/admin_panel_features.dart';
 import '../../../../common/utils/helpers/filter_features_by_permissions_fn.dart';
+import '../../../../common/utils/helpers/routing_helper_fn.dart';
 
 class AdminPanelScreen extends StatefulWidget {
   const AdminPanelScreen({super.key});
@@ -41,7 +41,10 @@ class _AdminPanelScreenState extends State<AdminPanelScreen> {
     if (childrenTiles.isEmpty) {
       return ListTile(
         leading: feature['icon'],
-        title: Text(feature['label']),
+        title: Text(
+          feature['label'],
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         subtitle: Text(feature['description']),
         onTap: () {
           RoutingHelperFn.pushToName(context, feature['namedPath']);
@@ -51,7 +54,10 @@ class _AdminPanelScreenState extends State<AdminPanelScreen> {
 
     return ExpansionTile(
       leading: feature['icon'],
-      title: Text(feature['label']),
+      title: Text(
+        feature['label'],
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
       subtitle: Text(feature['description']),
       children: childrenTiles,
     );

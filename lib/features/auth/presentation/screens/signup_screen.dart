@@ -104,7 +104,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   _isProcessing = false;
                 });
               } else if (state is AuthUserLoggedIn) {
-                print('got to home ');
                 RoutingHelperFn.replaceToName(context, AppPage.home.toName);
               }
             },

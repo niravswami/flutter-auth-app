@@ -4,9 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../common/errors/error_dialog.dart';
 import '../../../../../common/utils/confirmation_dialog.dart';
 import '../../../../../common/utils/show_snackbar.dart';
-import '../../../data/models/permission_model.dart';
 import '../../../data/models/role_model.dart';
 import '../../bloc/admin_dashboard_roles_bloc/admin_dashboard_roles_bloc.dart';
+import '../../widgets/common_widgets.dart';
+import '../../widgets/roles_widgets/assign_permissions_to_role_dialog.dart';
 import '../../widgets/roles_widgets/role_create_update_dialog.dart';
 
 class AdminRolesScreen extends StatefulWidget {
@@ -56,9 +57,10 @@ class _AdminRolesScreenState extends State<AdminRolesScreen> {
             roleList = [state.role, ...roleList];
           }
           if (state is AdminDashboardRoleUpdateSuccess) {
-            final filteredRoles =
-                roleList.where((role) => role.id != state.role.id);
-            roleList = [state.role, ...filteredRoles];
+            roleList = _filterAndUpdateRoleList(state.role);
+          }
+          if (state is AssignPermissionsToRoleSuccess) {
+            roleList = _filterAndUpdateRoleList(state.role);
           }
 
           if (state is AdminDashboardRoleDeleteSuccess) {
@@ -129,6 +131,10 @@ class _AdminRolesScreenState extends State<AdminRolesScreen> {
                       .add(AdminDashboardDeleteRole(roleData: role));
                 });
             break;
+          case "assign-permission":
+            showAssignPermissionsToRoleDialog(context, [], [], role);
+
+            break;
           default:
         }
       },
@@ -158,7 +164,8 @@ class _AdminRolesScreenState extends State<AdminRolesScreen> {
     if (role.permissions != null && role.permissions!.isEmpty) {
       return Card(
         child: ListTile(
-          title: Text(role.name),
+          title: Text(role.name,
+              style: const TextStyle(fontWeight: FontWeight.bold)),
           subtitle: const Text("No permissions"),
           trailing: _buildPopupMenuButton(context, role),
         ),
@@ -166,19 +173,6 @@ class _AdminRolesScreenState extends State<AdminRolesScreen> {
     } else {
       return _buildRoleTileWithPermissions(context, role);
     }
-  }
-
-  Widget _buildPermissionsChips(List<PermissionModel> permissions) {
-    final permissionChips = permissions.map((permission) {
-      return Chip(
-        label: Text(permission.name),
-      );
-    }).toList();
-
-    return Wrap(
-      spacing: 8, // Adjust spacing between chips
-      children: permissionChips,
-    );
   }
 
   Widget _buildRoleTileWithPermissions(
@@ -189,10 +183,18 @@ class _AdminRolesScreenState extends State<AdminRolesScreen> {
     return Card(
       child: ExpansionTile(
         trailing: _buildPopupMenuButton(context, role),
-        title: Text(role.name),
+        title: Text(role.name,
+            style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text("show ${permissions.length} permissions"),
-        children: [_buildPermissionsChips(permissions)],
+        children: [buildChips(permissions)],
       ),
     );
+  }
+
+  List<RoleModel> _filterAndUpdateRoleList(RoleModel updatedRole) {
+    return [
+      updatedRole,
+      ...roleList.where((role) => role.id != updatedRole.id)
+    ];
   }
 }

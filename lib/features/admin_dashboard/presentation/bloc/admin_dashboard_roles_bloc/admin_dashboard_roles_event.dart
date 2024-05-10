@@ -31,3 +31,13 @@ final class AdminDashboardDeleteRole extends AdminDashboardRolesEvent {
     required this.roleData,
   });
 }
+
+final class AssignPermissionsToRole extends AdminDashboardRolesEvent {
+  final RoleModel roleData;
+  final List<int> permissionIds;
+
+  const AssignPermissionsToRole({
+    required this.roleData,
+    required this.permissionIds,
+  });
+}
