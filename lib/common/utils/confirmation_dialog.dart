@@ -75,7 +75,7 @@ void showPermissionDeleteConfirmationDialog({
     builder: (BuildContext context) => BlocConsumer<
         AdminDashboardPermissionsBloc, AdminDashboardPermissionsState>(
       listener: (context, state) {
-        if (state is AdminDashboardRoleDeleteSuccess) {
+        if (state.permissionDeleted != null) {
           Navigator.pop(context);
         }
       },

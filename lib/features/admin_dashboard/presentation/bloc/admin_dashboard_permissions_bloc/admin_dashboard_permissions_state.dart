@@ -72,6 +72,8 @@ class AdminDashboardPermissionsState extends Equatable {
         errors,
         permissionCreated,
         permissionUpdated,
+        permissionDeleted,
+        isLoading,
       ];
 }
 
