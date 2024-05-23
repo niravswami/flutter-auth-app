@@ -7,6 +7,7 @@ void showLoaderOverlay(BuildContext context) {
   showDialog<Widget>(
     context: context,
     barrierDismissible: false,
+    useRootNavigator: false,
     builder: (BuildContext context) {
       return const Dialog(
         backgroundColor: Colors.transparent,

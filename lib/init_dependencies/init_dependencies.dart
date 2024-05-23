@@ -8,15 +8,11 @@ Future<void> initDependencies() async {
 
   await RegisterSharedPref(serviceLocator: serviceLocator).registerSharedPref();
 
-  serviceLocator.registerLazySingleton(() => BottomNavCubit());
+  serviceLocator.registerLazySingleton(() => AppThemeModeCubit());
+
   _registerApiService();
 
   AuthDependenciesRegister(serviceLocator: serviceLocator).register();
-
-  RoleAdminDashboardInitDependenciesRegister(serviceLocator: serviceLocator)
-      .register();
-  PermissionAdminDashboardInitDependencies(serviceLocator: serviceLocator)
-      .register();
 }
 
 void _registerApiService() async {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../config/theme/theme_constants.dart';
 
 class MainBottomNavbar extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -17,21 +16,20 @@ class MainBottomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       decoration: BoxDecoration(
         color: Colors.transparent,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(25),
+        borderRadius: BorderRadius.all(
+          Radius.circular(25.r),
         ),
         border: Border(
-          top: BorderSide(
-            color: AppColors.primaryLight.withOpacity(0.8),
-          ),
+          top: BorderSide(color: colorScheme.primary.withOpacity(0.8)),
         ),
       ),
       child: BottomNavigationBar(
-        selectedFontSize: 15.0,
-        unselectedFontSize: 14.0,
+        selectedFontSize: 15.0.sp,
+        unselectedFontSize: 14.0.sp,
         elevation: 0,
         backgroundColor: Colors.transparent,
         type: BottomNavigationBarType.fixed,

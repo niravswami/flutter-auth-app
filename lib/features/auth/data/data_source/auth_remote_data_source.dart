@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 import '../../../../common/services/api_services/api_service.dart';
@@ -35,29 +37,30 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     required String email,
     required String password,
   }) async {
-    final deviceName = await DeviceInfoService.getDeviceName();
-    try {
-      final response =
-          await apiService.postReq(AuthApiEndpointConstants.login, {
-        'email': email,
-        'password': password,
-        'device_name': deviceName,
-      });
+    return errorExceptionHandler(() async {
+      final deviceName = await DeviceInfoService.getDeviceName();
+      // final response =
+      //     await apiService.postReq(AuthApiEndpointConstants.login, {
+      //   'email': email,
+      //   'password': password,
+      //   'device_name': deviceName,
+      // });
+
+      Future.delayed(const Duration(seconds: 2), () {});
+      final response = jsonDecode(jsonEncode({
+        "token": "abcdefghijklmnolqrstuvwxyz",
+        "user": {
+          'id': 1,
+          "name": 'User Name',
+          "email": 'user@aa.aa',
+          "email_verified_at": "2024-05-22 18:04:50",
+          "created_at": "2024-05-22 18:04:50",
+          "updated_at": "2024-05-22 18:04:50",
+        }
+      }));
 
       return response;
-    } on DioException catch (e) {
-      String message = 'An unexpected error occurred!';
-      if (e.response != null) {
-        message = e.response!.data['message'];
-        throw DioServerException(
-            message: message, errors: e.response!.data['errors']);
-      } else if (e.message != null) {
-        message = e.message!;
-      }
-      throw DioServerException(message: message);
-    } catch (e) {
-      throw DioServerException(message: e.toString());
-    }
+    });
   }
 
   @override
@@ -68,55 +71,44 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     required String passwordConfirmation,
   }) async {
     return errorExceptionHandler(() async {
-      final response =
-          await apiService.postReq(AuthApiEndpointConstants.register, {
-        'name': name,
-        'email': email,
-        'password': password,
-        'password_confirmation': passwordConfirmation,
-      });
+      // final response =
+      //     await apiService.postReq(AuthApiEndpointConstants.register, {
+      //   'name': name,
+      //   'email': email,
+      //   'password': password,
+      //   'password_confirmation': passwordConfirmation,
+      // });
+
+      Future.delayed(const Duration(seconds: 3), () {});
+      final response = jsonDecode(jsonEncode({
+        "user": {
+          'id': 1,
+          "name": 'User Name',
+          "email": 'user@aa.aa',
+          "email_verified_at": "2024-05-22 18:04:50",
+          "created_at": "2024-05-22 18:04:50",
+          "updated_at": "2024-05-22 18:04:50",
+        }
+      }));
 
       return response;
     });
   }
 
-  // @override
-  // Future<Map<String, dynamic>> userSignUp({
-  //   required String name,
-  //   required String email,
-  //   required String password,
-  //   required String passwordConfirmation,
-  // }) async {
-  //   try {
-  //     final response =
-  //         await apiService.postReq(AuthApiEndpointConstants.register, {
-  //       'name': name,
-  //       'email': email,
-  //       'password': password,
-  //       'password_confirmation': passwordConfirmation,
-  //     });
-
-  //     return response;
-  //   } on DioException catch (e) {
-  //     String message = 'An unexpected error occurred!';
-  //     if (e.response != null) {
-  //       message = e.response!.data['message'];
-  //       throw DioServerException(
-  //           message: message, errors: e.response!.data['errors']);
-  //     } else if (e.message != null) {
-  //       message = e.message!;
-  //     }
-  //     throw DioServerException(message: message);
-  //   } catch (e) {
-  //     throw DioServerException(message: e.toString());
-  //   }
-  // }
-
   @override
   Future<UserModel> getAuthUserDetail() async {
     return errorExceptionHandler(() async {
-      final response =
-          await apiService.getReq(AuthApiEndpointConstants.getUserDetail);
+      // final response =
+      //     await apiService.getReq(AuthApiEndpointConstants.getUserDetail);
+      Future.delayed(const Duration(seconds: 3), () {});
+      final response = jsonDecode(jsonEncode({
+        'id': 1,
+        "name": 'User Name',
+        "email": 'user@aa.aa',
+        "email_verified_at": "2024-05-22 18:04:50",
+        "created_at": "2024-05-22 18:04:50",
+        "updated_at": "2024-05-22 18:04:50",
+      }));
       final user = UserModel.fromJson(response);
       return user;
     });
@@ -125,35 +117,13 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   @override
   Future<Map<String, dynamic>> logout() {
     return errorExceptionHandler(() async {
-      final response =
-          await apiService.postReq(AuthApiEndpointConstants.logout, {});
+      // final response =
+      //     await apiService.postReq(AuthApiEndpointConstants.logout, {});
+      Future.delayed(const Duration(seconds: 3), () {});
+      final response = jsonDecode(jsonEncode({
+        'message': "Logged out",
+      }));
       return response;
     });
   }
-
-  // @override
-  // Future<UserModel> getAuthUserDetail() async {
-  //   try {
-  //     final response =
-  //         await apiService.getReq(AuthApiEndpointConstants.getUserDetail);
-
-  //     final user = UserModel.fromJson(response['user']);
-  //     return user;
-  //   } on DioException catch (e) {
-  //     print(e);
-  //     String message = 'An unexpected error occurred!';
-  //     if (e.response != null) {
-  //       message = e.response!.data['message'];
-  //       throw DioServerException(
-  //           message: message, errors: e.response!.data['errors']);
-  //     } else if (e.message != null) {
-  //       message = e.message!;
-  //     }
-  //     throw DioServerException(message: message);
-  //   } catch (e) {
-  //     throw DioServerException(message: e.toString());
-  //   }
-  // }
-
-  // -----------------------
 }

@@ -40,103 +40,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       speed: 1.8,
       pageBodies: const [
         OnboardingContent(
-          title: "Admin Dashboard",
+          title: "Screen one",
           svgPath: AssetsConstants.dashboardSvgPath,
-          description:
-              "Only Admin Dashboard mobile app you ever need with easy to use UX/UI design.",
+          description: "Here is the screen one description",
         ),
         OnboardingContent(
-          title: "Real-time Notification",
+          title: "Screen Two",
           svgPath: AssetsConstants.pushNotificationSvgPath,
-          description:
-              "Broadcast and receive realtime events in your Laravel apps using Laravel Channels. Hosted WebSockets for fully-featured interactive apps.",
+          description: "Here is the screen two description",
         ),
         OnboardingContent(
-          title: "Payment Gateway",
+          title: "Screen Three",
           svgPath: AssetsConstants.onlinePaymentsSvgPath,
-          description:
-              "Experience seamless and secure transactions on our platform. Enjoy the convenience of multiple payment options and track your transaction history effortlessly.",
+          description: "Here is the screen three description",
         ),
       ],
     );
-    // return Scaffold(
-    //   body: SafeArea(
-    //     child: Stack(
-    //       children: [
-    //         Positioned(
-    //           right: 0,
-    //           top: 19,
-    //           child: TextButton(
-    //             onPressed: () {},
-    //             child: Text(
-    //               "Skip",
-    //               style: textTheme.bodyMedium!
-    //                   .copyWith(color: colorScheme.primary),
-    //             ),
-    //           ),
-    //         ),
-    //         Column(
-    //           crossAxisAlignment: CrossAxisAlignment.center,
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //           children: [
-    //             SapcingHelperFn.verticalSpace(30),
-    //             Text(
-    //               "Admin Dashboard",
-    //               style: textTheme.displayMedium!.copyWith(
-    //                 color: Colors.black87,
-    //               ),
-    //             ),
-    //             Expanded(
-    //               child: PageView(
-    //                 controller: _pageViewController,
-    //                 onPageChanged: _handlePageViewChanged,
-    //                 children: [
-    //                   Padding(
-    //                     padding: const EdgeInsets.symmetric(horizontal: 30),
-    //                     child: Column(
-    //                       children: [
-    //                         SvgPicture.asset(
-    //                           "assets/images/svg/dashboard.svg",
-    //                           height: 250,
-    //                         ),
-    //                         Text(
-    //                           "Empower your business with our cutting-edge admin dashboard featuring seamless Roles and Permissions management, Real-time notifications, and secure Payment Gateway integration",
-    //                           style: textTheme.bodyMedium!.copyWith(
-    //                             color: Colors.black87,
-    //                           ),
-    //                           textAlign: TextAlign.justify,
-    //                         ),
-    //                       ],
-    //                     ),
-    //                   ),
-    //                   Center(
-    //                     child: Text('Second Page'),
-    //                   ),
-    //                   Center(
-    //                     child: Text('Third Page'),
-    //                   ),
-    //                 ],
-    //               ),
-    //             ),
-    //             Row(
-    //               mainAxisSize: MainAxisSize.max,
-    //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //               children: [
-    //                 TextButton(
-    //                   onPressed: () {},
-    //                   child: Text("Prev"),
-    //                 ),
-    //                 OutlinedButton(
-    //                   onPressed: () {},
-    //                   child: Text("skip"),
-    //                 ),
-    //               ],
-    //             )
-    //           ],
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }

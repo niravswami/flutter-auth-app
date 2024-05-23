@@ -1,10 +1,10 @@
-import 'package:flutter_auth_app/common/utils/helpers/spacing_helper_fn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../../common/routes/routes_constants.dart';
 import '../../../../common/utils/helpers/routing_helper_fn.dart';
+import '../../../../common/utils/helpers/spacing_helper_fn.dart';
 import '../../../auth/presentation/bloc/auth_bloc.dart';
 
 class UserProfileScreen extends StatelessWidget {
@@ -80,9 +80,7 @@ class UserProfileScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            authState.user.roles != null
-                                ? authState.user.roles!.join(", ")
-                                : "USER",
+                            "USER ROLE",
                             style: TextStyle(
                               fontSize: 15.sp,
                               fontWeight: FontWeight.bold,
@@ -93,30 +91,6 @@ class UserProfileScreen extends StatelessWidget {
                       ),
                       SpacingHelperFn.verticalSpace(12.h),
                       const Divider(),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.4.h,
-                        child: authState.user.permissions != null
-                            ? ListView.builder(
-                                itemCount: authState.user.permissions != null
-                                    ? authState.user.permissions!.length
-                                    : 0,
-                                itemBuilder: (context, index) {
-                                  final permissions =
-                                      authState.user.permissions!;
-                                  return ListTile(
-                                    title: Text(
-                                      permissions[index],
-                                      style: TextStyle(fontSize: 16.sp),
-                                    ),
-                                    leading: const Icon(
-                                      Icons.check_circle,
-                                      color: Colors.green,
-                                    ),
-                                  );
-                                },
-                              )
-                            : const SizedBox(),
-                      ),
                     ],
                   ),
                 ),

@@ -10,7 +10,6 @@ import 'routes_constants.dart';
 
 FutureOr<String?> goRouterRedirect(BuildContext context, GoRouterState state) {
   var authStatus = context.read<AuthBloc>().state;
-  print('route redirect ');
   final loginLocation = state.namedLocation(AppPage.login.toName);
   final homeLocation = state.namedLocation(AppPage.home.toName);
   final emailVerificationLocation =

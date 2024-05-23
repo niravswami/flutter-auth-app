@@ -39,9 +39,13 @@ class _SplashScreenState extends State<SplashScreen> {
     getUserDetailCall(token);
   }
 
+  _navigateToLoginScreen() {
+    RoutingHelperFn.replaceToName(context, AppPage.login.toName);
+  }
+
   Future<void> _onUnauthenticated() async {
     await SharedPreferencesHelper.removeToken();
-    RoutingHelperFn.replaceToName(context, AppPage.login.toName);
+    _navigateToLoginScreen();
   }
 
   @override
@@ -80,7 +84,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 SpacingHelperFn.verticalSpace(20.h),
                 Text(
-                  'Admin Dashboard',
+                  'Flutter Auth App',
                   style: TextStyle(
                     fontSize: 28.sp,
                     color: colorScheme.primary,

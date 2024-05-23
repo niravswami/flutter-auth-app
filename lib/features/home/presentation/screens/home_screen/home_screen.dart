@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../common/constants/permissions_constants.dart';
 import '../../../../../common/routes/routes_constants.dart';
-import '../../../../../common/utils/has_role_permission/has_role_permission.dart';
 import '../../../../../common/utils/helpers/routing_helper_fn.dart';
+import '../../../../../config/theme/cubit/app_theme_mode_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,10 +11,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final bool canAccessAdminDashboard =
-        canAccess(context: context, permissions: [
-      PermissionsConstants.readAdminDashboard,
-    ]);
 
     return Scaffold(
       appBar: AppBar(
@@ -50,14 +46,11 @@ class HomeScreen extends StatelessWidget {
               style: textTheme.bodyMedium,
             ),
           ),
-          canAccessAdminDashboard
-              ? Text(
-                  "Yay! you have the Admin Dashboard access.",
-                  style: textTheme.bodyLarge!.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              : const SizedBox(),
+          ElevatedButton(
+              onPressed: () {
+                context.read<AppThemeModeCubit>().toggleThemeMode();
+              },
+              child: const Text("Toggle Theme"))
         ],
       ),
     );

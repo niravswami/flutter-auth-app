@@ -17,19 +17,6 @@ enum AppPage {
   notifications,
   //-> authenticated routes
   //->
-  // admin panel
-  adminPanel,
-  adminDashboard,
-  adminECommerce,
-  adminInbox,
-  adminUsers,
-  adminRolesAndPermissions,
-  adminRoles,
-  adminPermissions,
-  adminUserRoles,
-  adminPaymentGateways,
-  // -> admin panel
-  // ->
   // common routes
   error,
 }
@@ -65,29 +52,6 @@ extension AppPageExtension on AppPage {
         return "notifications";
       //-> authenticated routes
       //->
-      // admin dashboard
-      case AppPage.adminPanel:
-        return "/admin-panel";
-      case AppPage.adminDashboard:
-        return "admin-dashboard";
-      case AppPage.adminECommerce:
-        return "admin-e-commerce";
-      case AppPage.adminInbox:
-        return "admin-inbox";
-      case AppPage.adminUsers:
-        return "admin-users";
-      case AppPage.adminRolesAndPermissions:
-        return "admin-roles-and-permissions";
-      case AppPage.adminRoles:
-        return "admin-roles";
-      case AppPage.adminPermissions:
-        return "admin-permissions";
-      case AppPage.adminUserRoles:
-        return "admin-user-roles";
-      case AppPage.adminPaymentGateways:
-        return "admin-payment-gateways";
-      //-> admin dashboard
-      // ->
       // common routes
       case AppPage.error:
         return "/error";
@@ -125,30 +89,6 @@ extension AppPageExtension on AppPage {
       case AppPage.notifications:
         return "NOTIFICATIONS";
       //-> authenticated routes
-      //->
-      // admin dashboard
-      case AppPage.adminPanel:
-        return "ADMIN_PANEL";
-      case AppPage.adminDashboard:
-        return "ADMIN_DASHBOARD";
-      case AppPage.adminECommerce:
-        return "ADMIN_E_COMMERCE";
-      case AppPage.adminInbox:
-        return "ADMIN_INBOX";
-      case AppPage.adminUsers:
-        return "ADMIN_USERS";
-      case AppPage.adminRolesAndPermissions:
-        return "ADMIN_ROLES_AND_PERMISSIONS";
-      case AppPage.adminRoles:
-        return "ADMIN_ROLES";
-      case AppPage.adminPermissions:
-        return "ADMIN_PERMISSIONS";
-      case AppPage.adminUserRoles:
-        return "ADMIN_USER_ROLEs";
-      case AppPage.adminPaymentGateways:
-        return "ADMIN_PAYMENT_GATEWAYS";
-      //-> admin dashboard
-      //->
       // common routes
       case AppPage.error:
         return "ERROR";
@@ -186,29 +126,6 @@ extension AppPageExtension on AppPage {
       case AppPage.notifications:
         return "/notifications";
       //-> authenticated routes
-      //->
-      // admin dashboard
-      case AppPage.adminPanel:
-        return "/admin-panel";
-      case AppPage.adminDashboard:
-        return "/admin-panel/admin-dashboard";
-      case AppPage.adminECommerce:
-        return "/admin-panel/admin-e-commerce";
-      case AppPage.adminInbox:
-        return "/admin-panel/admin-inbox";
-      case AppPage.adminUsers:
-        return "/admin-panel/admin-users";
-      case AppPage.adminRolesAndPermissions:
-        return "/admin-panel/admin-roles-and-permissions";
-      case AppPage.adminRoles:
-        return "/admin-panel/admin-roles";
-      case AppPage.adminPermissions:
-        return "/admin-panel/admin-permissions";
-      case AppPage.adminUserRoles:
-        return "/admin-panel/admin-user-roles";
-      case AppPage.adminPaymentGateways:
-        return "/admin-panel/admin-payment-gateways";
-      //-> admin dashboard
       //->
       // common routes
       case AppPage.error:
