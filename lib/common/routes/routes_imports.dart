@@ -1,4 +1,4 @@
-import 'package:admin_dashboard_app/common/routes/routes_redirect.dart';
+import 'package:flutter_auth_app/common/routes/routes_redirect.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';

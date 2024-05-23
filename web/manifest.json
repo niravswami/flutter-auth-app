@@ -1,6 +1,6 @@
 {
-	"name": "admin_dashboard_app",
-	"short_name": "admin_dashboard_app",
+	"name": "flutter_auth_app",
+	"short_name": "flutter_auth_app",
 	"start_url": ".",
 	"display": "standalone",
 	"background_color": "#0175C2",

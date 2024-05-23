@@ -1,4 +1,4 @@
-import 'package:admin_dashboard_app/features/home/presentation/screens/home_screen/home_screen.dart';
+import 'package:flutter_auth_app/features/home/presentation/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

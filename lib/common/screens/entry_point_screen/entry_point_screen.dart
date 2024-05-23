@@ -1,5 +1,5 @@
-import 'package:admin_dashboard_app/common/constants/permissions_constants.dart';
-import 'package:admin_dashboard_app/common/utils/has_role_permission/has_role_permission.dart';
+import 'package:flutter_auth_app/common/constants/permissions_constants.dart';
+import 'package:flutter_auth_app/common/utils/has_role_permission/has_role_permission.dart';
 import 'package:flutter/material.dart';
 
 import '../../../features/admin_dashboard/presentation/screens/admin_dashboard_screen.dart';

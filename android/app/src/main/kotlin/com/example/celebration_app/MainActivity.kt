@@ -1,4 +1,4 @@
-package com.example.admin_dashboard_app
+package com.example.flutter_auth_app
 
 import io.flutter.embedding.android.FlutterActivity
 

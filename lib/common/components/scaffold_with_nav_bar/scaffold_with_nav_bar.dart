@@ -1,7 +1,7 @@
 // Builds the "shell" for the app by building a Scaffold with a
-import 'package:admin_dashboard_app/common/routes/routes_constants.dart';
-import 'package:admin_dashboard_app/common/utils/helpers/routing_helper_fn.dart';
-import 'package:admin_dashboard_app/common/utils/main_bottom_tabs_options.dart';
+import 'package:flutter_auth_app/common/routes/routes_constants.dart';
+import 'package:flutter_auth_app/common/utils/helpers/routing_helper_fn.dart';
+import 'package:flutter_auth_app/common/utils/main_bottom_tabs_options.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:collection/collection.dart';

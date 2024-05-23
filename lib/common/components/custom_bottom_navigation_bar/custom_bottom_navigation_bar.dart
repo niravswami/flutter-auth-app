@@ -1,4 +1,4 @@
-import 'package:admin_dashboard_app/common/routes/cubit/bottom_nav_cubit/bottom_nav_cubit.dart';
+import 'package:flutter_auth_app/common/routes/cubit/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
